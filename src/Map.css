@@ -1,0 +1,47 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #root {
+    height: 100vh;
+  }
+  
+  .heading {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
+  
+  .input-heading {
+    display: flex;
+    margin-right: 8rem;
+  }
+  
+  /* .map {
+    height: 100px;
+    width: 100px;
+  } */
+  
+  .searchbutton {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    text-align: center;
+  }
+  
+  .leaflet-container {
+    height: 100vh;
+    
+  }
