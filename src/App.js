@@ -19,6 +19,7 @@ const App = () => {
   const data = useSelector((state) => {
     return state.dataReducer.data
   })
+  console.log(data);
     useEffect(() => {
       const fetchData = async () => {
         await fetch(`${process.env.REACT_APP_API_URL}/air_pollution/forecast?lat=34.052235&lon=-118.243683&appid=${process.env.REACT_APP_API_KEY}`)
