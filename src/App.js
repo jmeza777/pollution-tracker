@@ -4,7 +4,7 @@ import Paypal from './Paypal';
 import React, { useState, useEffect } from 'react';
 import Pollution from './components/Pollution';
 import Pollution2 from './components/Pollution2';
-import Pollution3 from './components/Pollution3';
+// import Pollution3 from './components/Pollution3';
 import { setData } from './index';
 import { useDispatch, useSelector } from 'react-redux';
 import About from './components/About';
@@ -48,18 +48,18 @@ const App = () => {
       fetchData2();
     }, [])
 
-    const [data3, setData3] = useState([])
-    useEffect(() => {
-      const fetchData3 = async () => {
-        await fetch(`${process.env.REACT_APP_API_URL}/air_pollution/forecast?lat=35.689487&lon=139.691711&appid=${process.env.REACT_APP_API_KEY}`)
-        .then(res => res.json())
-        .then(result => {
-        (setData3(result))
-          console.log(result);
-        });
-      }
-      fetchData3();
-    }, [])
+    // const [data3, setData3] = useState([])
+    // useEffect(() => {
+    //   const fetchData3 = async () => {
+    //     await fetch(`${process.env.REACT_APP_API_URL}/air_pollution/forecast?lat=35.689487&lon=139.691711&appid=${process.env.REACT_APP_API_KEY}`)
+    //     .then(res => res.json())
+    //     .then(result => {
+    //     (setData3(result))
+    //       console.log(result);
+    //     });
+    //   }
+    //   fetchData3();
+    // }, [])
     // const handleButtonClick = () => {
     //   setData3();
     // };
@@ -93,8 +93,7 @@ const App = () => {
     
   </div>
 
-    <div className="Pollution">
-    {/* <button onClick={handleButtonClick}>search</button> */}
+    {/* <div className="Pollution">
     
 
     {(typeof data3.list != 'undefined') ? (
@@ -103,7 +102,7 @@ const App = () => {
       <div></div>
     )}
     
-  </div>    
+  </div>     */}
 
   <Airquality />
   

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import './Pollution3.css';
+
 
 
 const pollutionCard2 = ({pollutionData2,}) => (
