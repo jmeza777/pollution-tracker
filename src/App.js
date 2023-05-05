@@ -29,7 +29,7 @@ const App = () => {
         });
       }
       fetchData();
-    }, [])
+    }, )
 
     const [data2, setData2] = useState([])
     useEffect(() => {
