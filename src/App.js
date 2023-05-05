@@ -56,7 +56,9 @@ const App = () => {
       }
       fetchData3();
     }, [])
-  
+    // const handleButtonClick = () => {
+    //   setData3();
+    // };
   return (
     <>
   
@@ -88,6 +90,9 @@ const App = () => {
   </div>
 
     <div className="Pollution">
+    {/* <button onClick={handleButtonClick}>search</button> */}
+    
+
     {(typeof data3.list != 'undefined') ? (
       <Pollution3 pollutionData3={data3}/>
     ): (

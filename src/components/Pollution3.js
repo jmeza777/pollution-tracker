@@ -5,6 +5,8 @@ import { Table } from 'react-bootstrap';
 const pollutionCard3 = ({pollutionData3}) => {
   return (
   <>
+{/* <div>Hello</div>
+<button onClick={() => pollutionData3}>click me!</button> */}
 <Table striped bordered hover variant="dark" className="table">
       <thead>
         <tr>

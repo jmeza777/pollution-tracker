@@ -21,12 +21,13 @@ function Map ()  {
       />
 
         <Marker position={[34.052235, -118.243683]} icon={customIcon}>
-          <Popup>Los Angeles</Popup>
+          <Popup>Los Angeles AQI:2</Popup>
         </Marker>
-
+        
         <Marker position={[46.227638, 2.213749]} icon={customIcon}>
           <Popup>Paris</Popup>
         </Marker>
+
 
         <Marker position={[40.463669, -3.749220]} icon={customIcon}>
           <Popup>Spain</Popup>
