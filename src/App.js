@@ -31,7 +31,8 @@ const App = () => {
       }
       fetchData();
     }, [dispatch] )
-
+ 
+    
     const [data2, setData2] = useState([])
     useEffect(() => {
       const fetchData2 = async () => {
