@@ -30,11 +30,11 @@ function Map ()  {
 
 
         <Marker position={[40.463669, -3.749220]} icon={customIcon}>
-          <Popup>Spain</Popup>
+          <Popup>Spain<p>AQI: 3</p></Popup>
         </Marker>
 
         <Marker position={[54.7023545, -3.2765753]} icon={customIcon}>
-          <Popup>United Kingdom</Popup>
+          <Popup>United Kingdom<p>AQI: 1</p></Popup>
         </Marker>
         
     </MapContainer>

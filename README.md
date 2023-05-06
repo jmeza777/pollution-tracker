@@ -5,7 +5,7 @@ This react app renders pollution concentration data of Los Angeles, France, and 
 
 ## **Tech Stack**
 
-**Client:** React, Redux, Bootstrap, Javascript, HTML, CSS, OpenweatherAPI, leaflet.js
+**Client:** React, Redux, Bootstrap, Javascript, HTML, CSS, OpenweatherAPI, leaflet.js, Paypal API.
 
 
 # **How to use**

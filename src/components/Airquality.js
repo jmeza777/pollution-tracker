@@ -5,7 +5,8 @@ export default function airquality() {
   return (
     <>
     <h2 className="header-explanation">Explanation</h2>
-    <p className="header-info">Below is a table similar to openweatherapi website that illustrates the index, pollutant name and concentration in in μg/m3.</p>
+    <p className="header-info">Please click on the cloud icons on the map and you will get the AQI index.</p>
+    <p className="header-info">Below is a table similar to openweatherapi website that illustrates the index, pollutant name and concentration in in μg/m3. AQI(Air Quality Index) is used to measure whether the air quality is good or bad.</p>
     <Table striped bordered hover>
       <thead>
         <tr>

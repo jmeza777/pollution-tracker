@@ -10,10 +10,10 @@ body {
     -webkit-touch-callout: none;
 }
 
-.maindiv {
-    display: flex;
-    margin: 0 auto;
-    padding: 50px;
+.paypal-container {
+    
+    background-color: #007bff;
+
 }
 
 .card-field {

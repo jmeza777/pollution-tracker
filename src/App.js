@@ -106,9 +106,10 @@ const App = () => {
 
   <Airquality />
   
+  <main className="paypal-container">
   <h3 className="paypal-checkout">Paypal Checkout</h3>
   <Paypal />
-
+  </main>
     </>
   );
 }

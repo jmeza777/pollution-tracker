@@ -4,7 +4,7 @@ export default function Navbar() {
         <>
         <nav className="nav">
             
-            <p className="site-title"> Pollution Data </p>
+            <p className="site-title">  Pollution Tracker </p>
             
         </nav>
             </>
