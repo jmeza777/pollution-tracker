@@ -6,7 +6,7 @@ export default function Paypal() {
 
    return (
     <>
-       <PayPalScriptProvider options={{ "client-id": "AQFr5glqt3IM1c6SGmyDXst-avUnBGqLCwGEcfOwAWuX6oWcVnVZkddOAOt-qJJgjWU7_OqOSXDNjn_T" }}>
+       <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_Paypal_Client_Id }}>
            <PayPalButtons style={{ layout: "horizontal" }}
                 createOrder={(data, actions) => {
                     return actions.order
