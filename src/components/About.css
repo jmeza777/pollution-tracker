@@ -1,8 +1,9 @@
 .about-container {
     margin: 0 auto;
     padding: 50px;
-    background-color: #A8A8A8;
+    background-color: #6c757d;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    color: white;
   }
   
   .about-container h3 {
