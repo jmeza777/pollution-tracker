@@ -20,6 +20,7 @@ const Citydisplay = ({citySearch}) => {
   // const {citySearch} = citySearch; 
   return (
     <>
+    <div className='info-card'>
     {[
         'Secondary'
       ].map((variant) => (
@@ -45,6 +46,7 @@ const Citydisplay = ({citySearch}) => {
           </Card.Body>
         </Card>
       ))}
+    </div>
     {/* <p>{cityData.coord.lat}</p> */}
     <h2>{typeof citySearch != "undefined"}</h2>
     {/* <h2>{citySearch.coord.lat}</h2> */}

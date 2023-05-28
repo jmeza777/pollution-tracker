@@ -2,16 +2,18 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Navbar';
 import Paypal from './Paypal';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Pollution from './components/Pollution';
 // import Pollution2 from './components/Pollution2';
 // import Pollution3 from './components/Pollution3';
 import { setData } from './index';
 import { useDispatch, useSelector } from 'react-redux';
-import About from './components/About';
+// import About from './components/About';
 import Airquality from './components/Airquality';
 import Map from './Map';
 import Citydisplay from './components/Citydisplay';
+import Button from 'react-bootstrap/Button';
+import { useInView } from "framer-motion";
 
 const App = () => {
 
@@ -104,12 +106,32 @@ const App = () => {
   //   getData()
   // }, [])
 
+  function Div({ children }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+  
+    return (
+      <div ref={ref}>
+        <span
+          style={{
+            transform: isInView ? "none" : "translateX(-200px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+          }}
+        >
+          {children}
+        </span>
+      </div>
+    );
+  }
+
   return (
     <>
-  
+    <Div>
     <Navbar />
+    </Div>
 
-    <About />
+    {/* <About /> */}
 
     
     {/* <input type="text" placeholder='Search for a city' value={city} onChange={(e) => setCity(e.target.value)} />
@@ -117,32 +139,35 @@ const App = () => {
     
     {/* <input type="text" placeholder="latitude" />
     <input type="text" placeholder="longitude" /> */}
-    <h2>Enter your coordinates</h2>
+    <Div>
+    <h2 className="coordinates-header">Enter your coordinates</h2>
 
     <div className="latitude-search">
-    <input className="latitude-search" type="text" placeholder="latitude" value={lat} onChange={(e) => setLat(e.target.value)} />
+    <input className="latitude-search" type="number" placeholder="latitude" value={lat} onChange={(e) => setLat(e.target.value)} required/>
     </div>
     <div className="longitude-search">
-    <input className="longitude-search" type="text" placeholder="longitude" value={lon} onChange={(e) => setLon(e.target.value)} />
+    <input className="longitude-search" type="number" placeholder="longitude" value={lon} onChange={(e) => setLon(e.target.value)} required/>
     </div>
     <div className="button">
-    <button className="button" type="submit" onClick={fetchData} >Search</button>
+    <Button variant="success" className="button" type="submit" onClick={fetchData} >Search</Button>
     </div>
     {pollution && <Citydisplay  citySearch = {pollution} />}
+    </Div>
 
-
+    <Div>
     <Map />
+    </Div>
 
     <h3 className="sample-data">Sample Data</h3>
 
-    <div className="Pollution">
+    <Div className="Pollution">
     {(typeof data.list != 'undefined') ? (
       <Pollution pollutionData={data} />
     ): (
       <div></div>
     )}
     
-  </div>
+  </Div>
 
 
   {/* <div className="Pollution">
@@ -164,13 +189,15 @@ const App = () => {
     )}
     
   </div>     */}
-
+  <Div>
   <Airquality />
-  
+  </Div>
+  <Div>
   <main className="paypal-container">
   <h3 className="paypal-checkout">Paypal Checkout</h3>
   <Paypal />
   </main>
+  </Div>
     </>
   );
 }
