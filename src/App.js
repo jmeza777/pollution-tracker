@@ -70,17 +70,27 @@ const App = () => {
     const [lat, setLat] = useState('')
     const [pollution, setPollution] = useState(null)
     const [lon, setLon] = useState('')
+    const [searchError, setSearchError] = useState(false)
   
       function fetchData(e) {
   
         e.preventDefault()
-  
+        console.log('test')
         fetch(`${process.env.REACT_APP_API_URL}/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(result => {
-        setPollution(result)
-        setLat('')
-        setLon('')
+        if(result.message === "Nothing to geocode") {
+          setPollution(null)
+          setSearchError(true)
+        } else {
+          setSearchError(false)
+          setPollution(result)
+          setLat('')
+          setLon('')
+        }
+        // setPollution(result)
+        // setLat('')
+        // setLon('')
           console.log(result);
         });
       }
@@ -127,9 +137,9 @@ const App = () => {
 
   return (
     <>
-    <Div>
+    {/* <Div> */}
     <Navbar />
-    </Div>
+    {/* </Div> */}
 
     {/* <About /> */}
 
@@ -139,24 +149,27 @@ const App = () => {
     
     {/* <input type="text" placeholder="latitude" />
     <input type="text" placeholder="longitude" /> */}
-    <Div>
+    {/* <Div> */}
     <h2 className="coordinates-header">Enter your coordinates</h2>
 
     <div className="latitude-search">
-    <input className="latitude-search" type="number" placeholder="latitude" value={lat} onChange={(e) => setLat(e.target.value)} required/>
+    <input className="latitude-search" type="number"  placeholder="Latitude" value={lat} onChange={(e) => setLat(e.target.value)} required/>
     </div>
     <div className="longitude-search">
-    <input className="longitude-search" type="number" placeholder="longitude" value={lon} onChange={(e) => setLon(e.target.value)} required/>
+    <input className="longitude-search" type="number" placeholder="Longitude" value={lon} onChange={(e) => setLon(e.target.value)} required/>
     </div>
     <div className="button">
     <Button variant="success" className="button" type="submit" onClick={fetchData} >Search</Button>
     </div>
-    {pollution && <Citydisplay  citySearch = {pollution} />}
-    </Div>
 
-    <Div>
+    {searchError ? <p className="error">Error: Cannot leave geocode coordinates empty.</p> : null}
+
+    {pollution && <Citydisplay  citySearch = {pollution} />}
+    {/* </Div> */}
+
+    {/* <Div> */}
     <Map />
-    </Div>
+    {/* </Div> */}
 
     <h3 className="sample-data">Sample Data</h3>
 
@@ -176,7 +189,7 @@ const App = () => {
     ): (
       <div></div>
     )}
-    
+
   </div> */}
 
     {/* <div className="Pollution">

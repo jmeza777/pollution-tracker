@@ -54,12 +54,17 @@
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    border-radius: 20px;
+    text-indent: 10px;
+
 }
 
 .longitude-search {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    border-radius: 20px;
+    text-indent: 10px;
 }
 
 .button {
@@ -69,9 +74,35 @@
     margin-bottom: 1rem;
 }
 
+.error {
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+  }
+
 .info-card {
     display: flex;
     justify-content: center;
+}
+
+.card {
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-1px) scale(1.1);
 }
 
 div span {

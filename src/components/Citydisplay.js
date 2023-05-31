@@ -17,7 +17,7 @@ const Citydisplay = ({citySearch}) => {
   //       console.log(result);
   //     });
   //   }
-  // const {citySearch} = citySearch; 
+  // const {citySearch} = citySearch;
   return (
     <>
     <div className='info-card'>
@@ -29,7 +29,7 @@ const Citydisplay = ({citySearch}) => {
           key={variant}
           text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
           style={{ width: '18rem' }}
-          className="mb-2"
+          className="mb-2 card"
         >
           <Card.Header>Pollution Data</Card.Header>
           <Card.Body>
