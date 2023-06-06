@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import { motion } from 'framer-motion';
 const Citydisplay = ({citySearch}) => {
   // console.log(citySearch);
 
@@ -21,6 +22,16 @@ const Citydisplay = ({citySearch}) => {
   return (
     <>
     <div className='info-card'>
+    <motion.div
+          className="box"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
     {[
         'Secondary'
       ].map((variant) => (
@@ -46,6 +57,7 @@ const Citydisplay = ({citySearch}) => {
           </Card.Body>
         </Card>
       ))}
+    </motion.div>
     </div>
     {/* <p>{cityData.coord.lat}</p> */}
     <h2>{typeof citySearch != "undefined"}</h2>
