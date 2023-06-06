@@ -11,7 +11,7 @@ export default function airquality() {
       <thead>
         <tr>
           <th>Qualitative Name</th>
-          <th>Index</th>
+          <th>AQI</th>
           <th>Pollutant</th>
         </tr>
       </thead>

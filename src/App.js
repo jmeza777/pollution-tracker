@@ -70,6 +70,7 @@ const App = () => {
 
     const [city, setCity] = useState('')
     const [coord, setCoord] = useState(null)
+    const [cityError, setCityError] = useState(false)
 
     function fetchCoord(e) {
   
@@ -80,9 +81,11 @@ const App = () => {
       .then(result => {
       if(result.message === "Nothing to geocode") {
         setCoord(null)
+        setCityError(true)
       } else {
         setCoord(result)
         setCity('')
+        setCityError(false)
       }
         console.log(result);
       });
@@ -180,6 +183,8 @@ const App = () => {
     <div className="button">
     <Button variant="success" className="button" type="submit" onClick={fetchCoord} >Search</Button>
     </div>
+
+    {cityError ? <p className="error">Error: Cannot leave city name empty.</p> : null}
 
     {coord && <Citydata  Citydata = {coord} />}
 
