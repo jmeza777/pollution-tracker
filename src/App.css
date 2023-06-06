@@ -5,10 +5,10 @@
 .coordinates-header {
     display: flex;
     justify-content: center;
-    animation: bounce 1s infinite;
+    /* animation: bounce 1s infinite; */
 }
 
-@keyframes bounce {
+/* @keyframes bounce {
     0%, 100% {
       transform: translateY(-25%);
       animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
@@ -17,7 +17,7 @@
       transform: translateY(0);
       animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
-  }
+  } */
 
 .sample-data {
     display: flex;
@@ -110,3 +110,18 @@ div span {
     transform: translateX(-200px);
     opacity: 0;
   }
+
+.city-header {
+    display: flex;
+    justify-content: center;
+}
+
+.city-lat {
+    display: flex;
+    justify-content: center;
+}
+
+.city-lon {
+    display: flex;
+    justify-content: center;
+}

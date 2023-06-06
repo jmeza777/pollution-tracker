@@ -14,6 +14,7 @@ import Map from './Map';
 import Citydisplay from './components/Citydisplay';
 import Button from 'react-bootstrap/Button';
 import { useInView } from "framer-motion";
+import Citydata from './components/Citydata';
 
 const App = () => {
 
@@ -66,6 +67,26 @@ const App = () => {
     // const handleButtonClick = () => {
     //   setData3();
     // };
+
+    const [city, setCity] = useState('')
+    const [coord, setCoord] = useState(null)
+
+    function fetchCoord(e) {
+  
+      e.preventDefault()
+      console.log('test')
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
+      .then(res => res.json())
+      .then(result => {
+      if(result.message === "Nothing to geocode") {
+        setCoord(null)
+      } else {
+        setCoord(result)
+        setCity('')
+      }
+        console.log(result);
+      });
+    }
 
     const [lat, setLat] = useState('')
     const [pollution, setPollution] = useState(null)
@@ -150,6 +171,18 @@ const App = () => {
     {/* <input type="text" placeholder="latitude" />
     <input type="text" placeholder="longitude" /> */}
     {/* <Div> */}
+
+    <h2 className="coordinates-header">Enter your city</h2>
+
+    <div className="longitude-search">
+    <input className="longitude-search" type="text" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)}/>
+    </div>
+    <div className="button">
+    <Button variant="success" className="button" type="submit" onClick={fetchCoord} >Search</Button>
+    </div>
+
+    {coord && <Citydata  Citydata = {coord} />}
+
     <h2 className="coordinates-header">Enter your coordinates</h2>
 
     <div className="latitude-search">
