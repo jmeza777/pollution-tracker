@@ -116,12 +116,22 @@ div span {
     justify-content: center;
 }
 
-.city-lat {
+.coord {
     display: flex;
     justify-content: center;
 }
 
-.city-lon {
+.lat {
+    display: flex;
+    justify-content: center;
+}
+
+.lon {
+    display: flex;
+    justify-content: center;
+}
+
+.lat-but {
     display: flex;
     justify-content: center;
 }
