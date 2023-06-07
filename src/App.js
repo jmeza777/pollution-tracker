@@ -71,11 +71,20 @@ const App = () => {
     const [city, setCity] = useState('')
     const [coord, setCoord] = useState(null)
     const [cityError, setCityError] = useState(false)
+    const [cityErrorCharacter, setCityErrorCharacter] = useState(false)
 
     function fetchCoord(e) {
   
       e.preventDefault()
       console.log('test')
+      if (!city || !isNaN(parseInt(city))) {
+        setCityError(true);
+        return;
+      }
+      if (/[!@#$%^&*()-_+=,<>.?/|]/.test(city)) {
+        setCityErrorCharacter(true);
+        return;
+      }
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
       .then(res => res.json())
       .then(result => {
@@ -86,6 +95,7 @@ const App = () => {
         setCoord(result)
         setCity('')
         setCityError(false)
+        setCityErrorCharacter(false)
       }
         console.log(result);
       });
@@ -185,6 +195,8 @@ const App = () => {
     </div>
 
     {cityError ? <p className="error">Error: Cannot leave city name empty.</p> : null}
+    {cityError ? <p className="error">Error: Cannot enter a number.</p> : null}
+    {cityErrorCharacter ? <p className="error">Error: City name cannot contain special characters.</p> : null}
 
     {coord && <Citydata  Citydata = {coord} />}
 

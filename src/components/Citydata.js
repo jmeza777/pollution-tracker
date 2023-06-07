@@ -28,6 +28,7 @@ const Citydata = ({Citydata}) => {
     <Button className='lat-but' onClick={() => handleCopyClick(Citydata.coord.lon)}>Copy Longitude</Button>
     </div>
     <h2>{typeof Citydata != "undefined"}</h2>
+    <h2>{typeof Citydata != Number}</h2>
     </>
   )
 }
