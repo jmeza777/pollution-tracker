@@ -2,3 +2,8 @@ main {
 display: flex;
 flex-direction: row;
 }
+
+.no-underline {
+    display: flex;
+    justify-content: flex-end;
+}

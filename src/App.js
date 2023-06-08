@@ -2,19 +2,21 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Navbar';
 import Paypal from './Paypal';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Pollution from './components/Pollution';
 // import Pollution2 from './components/Pollution2';
 // import Pollution3 from './components/Pollution3';
 import { setData } from './index';
 import { useDispatch, useSelector } from 'react-redux';
 // import About from './components/About';
-import Airquality from './components/Airquality';
+// import Airquality from './components/Airquality';
 import Map from './Map';
-import Citydisplay from './components/Citydisplay';
-import Button from 'react-bootstrap/Button';
+// import Citydisplay from './components/Citydisplay';
+// import Button from 'react-bootstrap/Button';
 import { useInView } from "framer-motion";
-import Citydata from './components/Citydata';
+// import Citydata from './components/Citydata';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './components/Home';
 
 const App = () => {
 
@@ -68,66 +70,66 @@ const App = () => {
     //   setData3();
     // };
 
-    const [city, setCity] = useState('')
-    const [coord, setCoord] = useState(null)
-    const [cityError, setCityError] = useState(false)
-    const [cityErrorCharacter, setCityErrorCharacter] = useState(false)
+    // const [city, setCity] = useState('')
+    // const [coord, setCoord] = useState(null)
+    // const [cityError, setCityError] = useState(false)
+    // const [cityErrorCharacter, setCityErrorCharacter] = useState(false)
 
-    function fetchCoord(e) {
+    // function fetchCoord(e) {
   
-      e.preventDefault()
-      console.log('test')
-      if (!city || !isNaN(parseInt(city))) {
-        setCityError(true);
-        return;
-      }
-      if (/[!@#$%^&*()-_+=,<>.?/|]/.test(city)) {
-        setCityErrorCharacter(true);
-        return;
-      }
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
-      .then(res => res.json())
-      .then(result => {
-      if(result.message === "Nothing to geocode") {
-        setCoord(null)
-        setCityError(true)
-      } else {
-        setCoord(result)
-        setCity('')
-        setCityError(false)
-        setCityErrorCharacter(false)
-      }
-        console.log(result);
-      });
-    }
+    //   e.preventDefault()
+    //   console.log('test')
+    //   if (!city || !isNaN(parseInt(city))) {
+    //     setCityError(true);
+    //     return;
+    //   }
+    //   if (/[!@#$%^&*()-_+=,<>.?/|]/.test(city)) {
+    //     setCityErrorCharacter(true);
+    //     return;
+    //   }
+    //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
+    //   .then(res => res.json())
+    //   .then(result => {
+    //   if(result.message === "Nothing to geocode") {
+    //     setCoord(null)
+    //     setCityError(true)
+    //   } else {
+    //     setCoord(result)
+    //     setCity('')
+    //     setCityError(false)
+    //     setCityErrorCharacter(false)
+    //   }
+    //     console.log(result);
+    //   });
+    // }
 
-    const [lat, setLat] = useState('')
-    const [pollution, setPollution] = useState(null)
-    const [lon, setLon] = useState('')
-    const [searchError, setSearchError] = useState(false)
+    // const [lat, setLat] = useState('')
+    // const [pollution, setPollution] = useState(null)
+    // const [lon, setLon] = useState('')
+    // const [searchError, setSearchError] = useState(false)
   
-      function fetchData(e) {
+    //   function fetchData(e) {
   
-        e.preventDefault()
-        console.log('test')
-        fetch(`${process.env.REACT_APP_API_URL}/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`)
-        .then(res => res.json())
-        .then(result => {
-        if(result.message === "Nothing to geocode") {
-          setPollution(null)
-          setSearchError(true)
-        } else {
-          setSearchError(false)
-          setPollution(result)
-          setLat('')
-          setLon('')
-        }
-        // setPollution(result)
-        // setLat('')
-        // setLon('')
-          console.log(result);
-        });
-      }
+    //     e.preventDefault()
+    //     console.log('test')
+    //     fetch(`${process.env.REACT_APP_API_URL}/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`)
+    //     .then(res => res.json())
+    //     .then(result => {
+    //     if(result.message === "Nothing to geocode") {
+    //       setPollution(null)
+    //       setSearchError(true)
+    //     } else {
+    //       setSearchError(false)
+    //       setPollution(result)
+    //       setLat('')
+    //       setLon('')
+    //     }
+    //     // setPollution(result)
+    //     // setLat('')
+    //     // setLon('')
+    //       console.log(result);
+    //     });
+    //   }
 
 
     // const [city, setCity] = useState('')
@@ -171,8 +173,15 @@ const App = () => {
 
   return (
     <>
-    {/* <Div> */}
+    <Router>
     <Navbar />
+        <Routes>
+        <Route path="/" element={<Home/>}/>
+          <Route path="/map" element={<Map/>}/>
+        </Routes>
+      </Router>
+    {/* <Div> */}
+    {/* <Navbar /> */}
     {/* </Div> */}
 
     {/* <About /> */}
@@ -185,7 +194,7 @@ const App = () => {
     <input type="text" placeholder="longitude" /> */}
     {/* <Div> */}
 
-    <h2 className="coordinates-header">Enter your city</h2>
+    {/* <h2 className="coordinates-header">Enter your city</h2>
 
     <div className="longitude-search">
     <input className="longitude-search" type="text" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)}/>
@@ -214,11 +223,11 @@ const App = () => {
 
     {searchError ? <p className="error">Error: Cannot leave geocode coordinates empty.</p> : null}
 
-    {pollution && <Citydisplay  citySearch = {pollution} />}
+    {pollution && <Citydisplay  citySearch = {pollution} />} */}
     {/* </Div> */}
 
     {/* <Div> */}
-    <Map />
+    {/* <Map /> */}
     {/* </Div> */}
 
     <h3 className="sample-data">Sample Data</h3>
@@ -252,9 +261,9 @@ const App = () => {
     )}
     
   </div>     */}
-  <Div>
+  {/* <Div>
   <Airquality />
-  </Div>
+  </Div> */}
   <Div>
   <main className="paypal-container">
   <h3 className="paypal-checkout">Paypal Checkout</h3>

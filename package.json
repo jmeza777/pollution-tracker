@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "body-parser": "^1.20.2",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
     "dotenv": "^16.0.3",
     "framer-motion": "^10.12.16",
     "leaflet": "^1.9.3",
