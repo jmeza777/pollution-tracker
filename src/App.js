@@ -267,7 +267,9 @@ const App = () => {
   <Div>
   <main className="paypal-container">
   <h3 className="paypal-checkout">Paypal Checkout</h3>
+  <div className='paypal-buttons'>
   <Paypal />
+  </div>
   </main>
   </Div>
     </>

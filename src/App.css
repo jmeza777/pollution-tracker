@@ -139,3 +139,14 @@ div span {
 /* .home-nav {
     margin-left: 900px;
 } */
+
+.paypal-checkout {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.paypal-buttons {
+    display: flex;
+    justify-content: center;
+}
