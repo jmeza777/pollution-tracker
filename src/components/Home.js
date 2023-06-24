@@ -119,9 +119,9 @@ const Home = () => {
 
     {pollution && <Citydisplay  citySearch = {pollution} />}
 
-    <Div>
+    
     <Airquality />
-    </Div>
+    
 
     </>
   )
