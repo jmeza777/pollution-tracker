@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Citydata from './Citydata';
 import Citydisplay from './Citydisplay';
 import Airquality from './Airquality';
-import { useInView } from "framer-motion";
+// import { useInView } from "framer-motion";
 const Home = () => {
 
     const [city, setCity] = useState('')
@@ -66,25 +66,25 @@ const Home = () => {
           console.log(result);
         });
       }
-
-      function Div({ children }) {
-        const ref = useRef(null);
-        const isInView = useInView(ref, { once: true });
       
-        return (
-          <div ref={ref}>
-            <span
-              style={{
-                transform: isInView ? "none" : "translateX(-200px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-              }}
-            >
-              {children}
-            </span>
-          </div>
-        );
-      }
+      // function Div({ children }) {
+      //   const ref = useRef(null);
+      //   const isInView = useInView(ref, { once: true });
+      
+      //   return (
+      //     <div ref={ref}>
+      //       <span
+      //         style={{
+      //           transform: isInView ? "none" : "translateX(-200px)",
+      //           opacity: isInView ? 1 : 0,
+      //           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+      //         }}
+      //       >
+      //         {children}
+      //       </span>
+      //     </div>
+      //   );
+      // }
 
   return (
     <>
